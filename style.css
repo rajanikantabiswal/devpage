@@ -1,51 +1,58 @@
-*{
-    margin: 0;
-    padding: 0;
-}
 body{
-    background: black;
-    color: white;
-}
-.navbar{
-    height: 5rem;
-    background: green;
-    padding: 0 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.logo{
-    padding: 10px;
-    border: 2px solid white;
-
-    font-size: 20px;
-    font-weight: 600;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .main{
-    height: 90vh;
+
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;    
+
+    
+
 }
-.content{
-    width: 75%;
-    background: rgb(145, 174, 145);
+.button{
+    width: 100px;
+    padding: 50px;
+    margin: 30px;
+    color: white;
+    font-weight: 900;
+    font-size: 40px;
+    text-shadow: 2px 2px #4848483d;
+    border: 2px solid white;
 }
-.sidebar{
-    background: rgb(190, 223, 190);
-    width: 25%;
-    padding: 20px;
+#red{
+    background-color: red;
 }
-.footer{
-    background: rgb(0, 43, 0);
-    padding: 10px;
-    text-align: center;
+#yellow{
+    background-color: yellow;
 }
-.sidebar div{
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid green;
+#green{
+    background-color: green;
 }
-.sidebar div ul{
-    list-style-position: inside;
-    padding: 10px;
+#aqua{
+    background-color: aqua;
+}
+.reset{
+    display: flex;
+    justify-content: center;
+}
+.reset-btn{
+    padding: 15px 30px;
+    border: 1px solid red;
+    color: red;
+    border-radius: 10px;
+}
+
+/* form css */
+.form{
+padding:100px 50px;
+}
+.form div{
+margin-bottom: 20px;
+}
+.form div label{
+    padding-right: 20px;
+}
+.form div button{
+    padding: 5px 10px;
 }
