@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guess Game</title>
+    <style>
+        body{
+            background-color: rgb(28, 28, 28);
+            color: white;
+        }
+        #wrapper{
+            padding: 50px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>Number guessing game</h1>
+      <p>Try and guess a random number between 1 and 100.</p>
+      <p>You have 10 attempts to guess the right number.</p>
+      </br>
+          <form class="form">
+              <label for="guessField" id="guess">Guess a number</label>
+              <input type="text" id="guessField" class="guessField">
+              <input type="submit" id="subt" value="Submit guess" class="guessSubmit">
+          </form>
+          <div class="validation"></div>
+          <div class="resultParas">
+              <p >Previous Guesses: <span class="guesses"></span></p>
+              <p >Guesses Remaining: <span class="lastResult">10</span></p>
+              <p class="lowOrHi"></p>
+          </div>
+      </div>
+
+    <div><a href="index.html">Go to Home</a></div>
+    <div><a href="form.html">BMI Calculator</a></div>
+
+    <script>
+        const randomNumber=parseInt(Math.random()*100+1);
+        const userInput= document.getElementById("guessField");
+        const submitBtn= document.getElementById("subt");
+        const guessSlot = document.querySelector(".guesses");
+        const lastResult = document.querySelector(".lastResult");
+        const lowOrHigh = document.querySelector(".lowOrHi");
+        const startOver= document.querySelector(".resultParas");
+        const validation= document.querySelector(".validation");
+
+        const p=document.createElement("p");
+        
+        let prevGuess=[];
+        let numGuess= 1;
+        let playGame=true;
+
+        if(playGame){
+            submitBtn.addEventListener('click', function(e){
+                e.preventDefault()
+                const guess= parseInt(userInput.value);
+                validateGuess(guess);
+            })
+        }
+
+        function validateGuess(guess){
+            if(guess<0 || guess>100 || isNaN(guess)){
+                alert("Please enter a valid number.")
+            }else{
+                prevGuess.push(guess);
+                if(numGuess>10){
+                    displayMessage(`Game Over. Random number wae ${randomNumber}`);
+                    endGame();
+                }else{
+                    displayGuess(guess);
+                    checkGuess(guess);
+                    
+                }
+            }
+        }
+
+        function checkGuess(guess){
+            //code here
+            if(guess===randomNumber){
+                displayMessage(`Congractulation !.. You guess the right number.`)
+            }else if(guess<randomNumber){
+                displayMessage(`ohh...Your guess is too low.`);
+            }else{
+                displayMessage(`ohh....your guess is too high`);
+            }
+        }
+
+        function displayMessage(message){
+            console.log(message);
+        }
+
+        function displayGuess(guess){
+            //
+            userInput.value="";
+            console.log(randomNumber);
+        }
+
+        function endGame(){
+            //
+        }
+
+        function endGame(){
+            //
+        }
+    </script>
+</body>
+</html>
